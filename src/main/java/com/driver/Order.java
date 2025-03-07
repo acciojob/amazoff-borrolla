@@ -14,11 +14,9 @@ public class Order {
         int minutes = Integer.parseInt(parts[1]);
         return hours * 60 + minutes; // Convert to total minut
     }
-
     public String getId() {
         return id;
     }
-
     public int getDeliveryTime() {
         return deliveryTime;
     }
