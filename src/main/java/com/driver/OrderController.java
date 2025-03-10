@@ -31,7 +31,7 @@ public class OrderController {
 
     @PostMapping("/add-partner/{partnerId}")
     public ResponseEntity<String> addPartner(@PathVariable String partnerId){
-       service.addPartner(partnerId);
+        service.addPartner(partnerId);
         return new ResponseEntity<>("New delivery partner added successfully", HttpStatus.CREATED);
     }
 
@@ -49,7 +49,7 @@ public class OrderController {
         //order should be returned with an orderId.
         return new ResponseEntity<>(order, HttpStatus.CREATED);
     }
-
+//new change
     @GetMapping("/get-partner-by-id/{partnerId}")
     public ResponseEntity<DeliveryPartner> getPartnerById(@PathVariable String partnerId){
 

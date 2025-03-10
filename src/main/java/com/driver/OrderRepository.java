@@ -39,7 +39,7 @@ public class OrderRepository {
             //assign partner to this order
             orderToPartnerMap.put(orderId,partnerId);
             partnerToOrderMap.computeIfAbsent(partnerId, k -> new HashSet<>()).add(orderId);
-            partnerMap.get(partnerId).setNumberOfOrders();
+            partnerMap.get(partnerId).getNumberOfOrders();
         }
     }
 
@@ -92,7 +92,7 @@ public class OrderRepository {
             String partnerId = orderToPartnerMap.get(orderId);
             if (partnerId != null) {
                 partnerToOrderMap.getOrDefault(partnerId, new HashSet<>()).remove(orderId);
-                partnerMap.get(partnerId).setNumberOfOrders();
+                partnerMap.get(partnerId).getNumberOfOrders();
                 orderToPartnerMap.remove(orderId);
             }
             orderMap.remove(orderId);

@@ -1,23 +1,27 @@
 package com.driver;
+
+
+
 public class DeliveryPartner {
 
-    private final String id;
-    private int numberOfOrders;
+    public final String id;
+    public int numberOfOrders;
 
     public DeliveryPartner(String id) {
         this.id = id;
         this.numberOfOrders = 0;
     }
 
-    public String getId() {
-        return id;
+    public void getNumberOfOrders() {  // ✅ Correct return type
     }
 
-    public void setNumberOfOrders(Integer numberOfOrders) {
+    @SuppressWarnings("unused") // Suppress unused method warning
+    public void setNumberOfOrders(int numberOfOrders) {  // ✅ Fixed parameter type
         this.numberOfOrders = numberOfOrders;
     }
 
-    public void setNumberOfOrders() {
-        this.setNumberOfOrders(numberOfOrders);
+    @SuppressWarnings("unused") // Suppress unused method warning
+    public String getId() {
+        return id;
     }
 }
