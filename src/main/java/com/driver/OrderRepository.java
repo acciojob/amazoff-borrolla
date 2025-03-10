@@ -13,10 +13,10 @@ public class OrderRepository {
     private final HashMap<String, String> orderToPartnerMap;
 
     public OrderRepository(){
-        this.orderMap = new HashMap<String, Order>();
-        this.partnerMap = new HashMap<String, DeliveryPartner>();
-        this.partnerToOrderMap = new HashMap<String, HashSet<String>>();
-        this.orderToPartnerMap = new HashMap<String, String>();
+        this.orderMap = new HashMap<>();
+        this.partnerMap = new HashMap<>();
+        this.partnerToOrderMap = new HashMap<>();
+        this.orderToPartnerMap = new HashMap<>();
     }
 
     public void saveOrder(Order order){

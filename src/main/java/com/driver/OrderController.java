@@ -72,14 +72,14 @@ public class OrderController {
     public ResponseEntity<List<String>> getOrdersByPartnerId(@PathVariable String partnerId){
         List<String> orders = service.getOrdersByPartnerId(partnerId);
         //orders should contain a list of orders by PartnerId
-        return new ResponseEntity<>(orders, HttpStatus.CREATED);
+        return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     @GetMapping("/get-all-orders")
     public ResponseEntity<List<String>> getAllOrders(){
         List<String> orders = service.getAllOrders();
         //Get all orders
-        return new ResponseEntity<>(orders, HttpStatus.CREATED);
+        return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     @GetMapping("/get-count-of-unassigned-orders")
