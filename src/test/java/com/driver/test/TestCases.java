@@ -23,9 +23,10 @@ public class TestCases {
         orderController = new OrderController(orderService); // Correctly initialize OrderController
     }
 
+
     @Test
-    @Order(1)
-    void testContextLoads() {
+    public void testSomeFunctionality() {
+        // Your test code here
         assertNotNull(orderController, "OrderController should be initialized by Spring Boot");
     }
 }
