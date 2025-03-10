@@ -90,7 +90,6 @@ public class OrderRepository {
         // delete order by
         if (orderMap.containsKey(orderId)) {
             String partnerId = orderToPartnerMap.get(orderId);
-
             if (partnerId != null) {
                 partnerToOrderMap.getOrDefault(partnerId, new HashSet<>()).remove(orderId);
                 partnerMap.get(partnerId).setNumberOfOrders();
@@ -108,10 +107,17 @@ public class OrderRepository {
     public Integer findOrdersLeftAfterGivenTimeByPartnerId(String timeString, String partnerId){
         // your code here
         int count = 0;
-        if(partnerToOrderMap.containsKey(partnerId)){
+
+        // Convert HH:MM timeString to integer (minutes)
+        String[] timeParts = timeString.split(":");
+        int givenTime = Integer.parseInt(timeParts[0]) * 60 + Integer.parseInt(timeParts[1]);
+
+        if (partnerToOrderMap.containsKey(partnerId)) {
             for (String orderId : partnerToOrderMap.get(partnerId)) {
                 Order order = orderMap.get(orderId);
-                if (order != null && order.getDeliveryTime() > 0) {
+
+                // Compare delivery time with givenTime
+                if (order != null && order.getDeliveryTime() > givenTime) {
                     count++;
                 }
             }

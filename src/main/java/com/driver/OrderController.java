@@ -64,25 +64,20 @@ public class OrderController {
     public ResponseEntity<Integer> getOrderCountByPartnerId(@PathVariable String partnerId){
 
         Integer orderCount = service.getOrderCountByPartnerId(partnerId);
-
         //orderCount should denote the orders given by a partner-id
-
         return new ResponseEntity<>(orderCount, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-orders-by-partner-id/{partnerId}")
     public ResponseEntity<List<String>> getOrdersByPartnerId(@PathVariable String partnerId){
         List<String> orders = service.getOrdersByPartnerId(partnerId);
-
         //orders should contain a list of orders by PartnerId
-
         return new ResponseEntity<>(orders, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-orders")
     public ResponseEntity<List<String>> getAllOrders(){
         List<String> orders = service.getAllOrders();
-
         //Get all orders
         return new ResponseEntity<>(orders, HttpStatus.CREATED);
     }
@@ -90,9 +85,7 @@ public class OrderController {
     @GetMapping("/get-count-of-unassigned-orders")
     public ResponseEntity<Integer> getCountOfUnassignedOrders(){
         Integer countOfOrders = service.getCountOfUnassignedOrders();
-
         //Count of orders that have not been assigned to any DeliveryPartner
-
         return new ResponseEntity<>(countOfOrders, HttpStatus.CREATED);
     }
 
